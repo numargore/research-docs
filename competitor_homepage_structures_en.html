@@ -1,0 +1,214 @@
+
+<h2 class="sr-only">Homepage structure analysis for Miro, Canva, Figma, Notion, and Confluence — hero sections, page sections, and patterns</h2>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff}
+.wrap{padding:1.25rem 0 1rem;background:#fff}
+.meta{font-size:11px;color:#999;margin:0 0 1rem}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 1.25rem}
+.tab{padding:5px 14px;border:0.5px solid #D5D2CA;border-radius:20px;font-size:13px;cursor:pointer;background:#fff;color:#555;transition:all .15s}
+.tab.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.bv{display:none}.bv.active{display:block}
+.hero-card{background:#F7F6F1;border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.25rem}
+.hl{font-size:11px;font-weight:500;color:#999;text-transform:uppercase;letter-spacing:.07em;margin:0 0 8px}
+.headline{font-size:17px;font-weight:500;color:#1a1a1a;margin:0 0 5px;line-height:1.3}
+.subline{font-size:12px;color:#555;line-height:1.55;margin:0 0 10px}
+.cta-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 8px}
+.cp{font-size:12px;padding:5px 12px;border-radius:20px;background:#1a1a1a;color:#fff}
+.cs{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid #CCC;color:#555;background:#fff}
+.vis{font-size:11px;padding:3px 9px;border-radius:10px;background:#fff;border:0.5px solid #DDD;color:#666;display:inline-block}
+.sl{font-size:11px;font-weight:500;color:#999;text-transform:uppercase;letter-spacing:.07em;margin:0 0 8px}
+.slist{margin:0 0 1.25rem}
+.sr{display:flex;gap:10px;padding:7px 0;border-bottom:0.5px solid #EBEBEB;align-items:flex-start}
+.sr:last-child{border-bottom:none}
+.sn{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;margin-top:1px}
+.sb{flex:1}
+.st{font-size:13px;font-weight:500;margin:0 0 2px;color:#1a1a1a}
+.sd{font-size:12px;color:#666;line-height:1.5;margin:0}
+.tag{font-size:10px;padding:2px 6px;border-radius:8px;margin-left:5px;vertical-align:middle;font-weight:400}
+.t-proof{background:#EAF3DE;color:#3B6D11}
+.t-feat{background:#EEEDFE;color:#534AB7}
+.t-cta{background:#FAECE7;color:#993C1D}
+.t-aud{background:#E1F5EE;color:#0F6E56}
+.t-ai{background:#E6F1FB;color:#185FA5}
+.t-nav{background:#F1EFE8;color:#5F5E5A}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 1.25rem}
+.pc{background:#fff;border:0.5px solid #E0DDD6;border-radius:8px;padding:.65rem .9rem}
+.pl{font-size:11px;color:#999;margin:0 0 2px;font-weight:500}
+.pv{font-size:12px;color:#1a1a1a}
+.pv.good{color:#3B6D11}.pv.warn{color:#854F0B}
+.note{font-size:12px;color:#555;background:#F7F6F1;border-radius:8px;padding:.75rem 1rem;border-left:3px solid #DDD;line-height:1.6;margin:0}
+</style>
+<div class="wrap">
+<p class="meta">Homepage structures · source: direct page fetches + search analysis · May 2026</p>
+<div class="tabs">
+  <div class="tab active" onclick="show('miro',this)">Miro</div>
+  <div class="tab" onclick="show('canva',this)">Canva</div>
+  <div class="tab" onclick="show('figma',this)">Figma</div>
+  <div class="tab" onclick="show('notion',this)">Notion</div>
+  <div class="tab" onclick="show('confluence',this)">Confluence</div>
+</div>
+
+<div class="bv active" id="miro">
+  <div class="hero-card">
+    <div class="hl">Hero</div>
+    <div class="headline">"Your team and AI, working together on one canvas"</div>
+    <div class="subline">Speed up product development from ideation to launch. Align teams, break tool silos, and ship what customers need in one AI-powered visual platform.</div>
+    <div class="cta-row"><span class="cp">Get Started Free</span><span class="cs">Contact Sales</span></div>
+    <span class="vis">🎬 Animated canvas with multiple collaborator cursors</span>
+  </div>
+  <div class="sl">Page structure</div>
+  <div class="slist">
+    <div class="sr"><div class="sn" style="background:#FFF3B0;color:#7A5C00">0</div><div class="sb"><div class="st">Nav <span class="tag t-nav">mega-menu</span></div><div class="sd">Product / Solutions / Resources / Pricing / Templates + "Get Started Free" + "Contact Sales". Canvas 26 event banner.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">1</div><div class="sb"><div class="st">Hero <span class="tag t-ai">AI-first</span></div><div class="sd">Headline + subline + 2 CTAs + animated canvas with multiple cursors. Collaboration is physically visible in the visual.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">2</div><div class="sb"><div class="st">Social proof <span class="tag t-proof">proof</span></div><div class="sd">"100M+ users, 250K companies" + enterprise logos (Nike, Spotify, Cisco, Dell, Pfizer) + "Trusted by" strip.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">3</div><div class="sb"><div class="st">Product Acceleration <span class="tag t-feat">feature</span></div><div class="sd">Three verticals: PM / Engineering / Design & UX. Each has product screenshots and a sub-CTA "See more".</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">4</div><div class="sb"><div class="st">AI features <span class="tag t-ai">AI</span></div><div class="sd">Sidekicks / AI Flows / MCP / Knowledge integration. Each feature is an animated card.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E1F5EE;color:#0F6E56">5</div><div class="sb"><div class="st">Customer Stories <span class="tag t-proof">proof</span></div><div class="sd">3–4 enterprise case study cards with outcome metrics ("2x faster", "40% reduction"). Logos + names.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAEEDA;color:#854F0B">6</div><div class="sb"><div class="st">Integrations <span class="tag t-feat">feature</span></div><div class="sd">100+ integrations: Jira, Slack, Figma, Notion, GitHub, Asana. Icon grid + "See all integrations".</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAECE7;color:#993C1D">7</div><div class="sb"><div class="st">Bottom CTA <span class="tag t-cta">CTA</span></div><div class="sd">"Start free" + "Talk to sales" — different message from hero. Specifically targets the enterprise sales path.</div></div></div>
+  </div>
+  <div class="sl">Patterns</div>
+  <div class="pgrid">
+    <div class="pc"><div class="pl">CTA in hero</div><div class="pv good">2 (Free + Sales)</div></div>
+    <div class="pc"><div class="pl">Social proof position</div><div class="pv good">Immediately after hero</div></div>
+    <div class="pc"><div class="pl">Visual in hero</div><div class="pv good">Animated product UI</div></div>
+    <div class="pc"><div class="pl">AI in hierarchy</div><div class="pv good">Headline + section 4</div></div>
+    <div class="pc"><div class="pl">Audiences</div><div class="pv warn">B2B enterprise only. No B2C.</div></div>
+    <div class="pc"><div class="pl">Bottom CTA angle</div><div class="pv good">Different message from hero</div></div>
+  </div>
+  <div class="note">Miro builds the page as a linear enterprise funnel: hero captures → product proof convinces → customer stories close → sales CTA converts. Single audience, no diversions.</div>
+</div>
+
+<div class="bv" id="canva">
+  <div class="hero-card">
+    <div class="hl">Hero</div>
+    <div class="headline">"What will you design today?"</div>
+    <div class="subline">Design anything. Publish anywhere.</div>
+    <div class="cta-row"><span class="cp">Sign up for free</span></div>
+    <span class="vis">🎨 Collage of finished design outputs across categories</span>
+  </div>
+  <div class="sl">Page structure</div>
+  <div class="slist">
+    <div class="sr"><div class="sn" style="background:#E8D8F5;color:#4B1A80">0</div><div class="sb"><div class="st">Nav</div><div class="sd">Minimal: Products / Business / Education / Plans. "Log in" + "Sign up" (purple button). No mega-menu.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">1</div><div class="sb"><div class="st">Hero <span class="tag t-ai">identity-led</span></div><div class="sd">Rhetorical question as headline. Single CTA. Large visual collage of design outputs. No product explanation — relies on brand recognition.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">2</div><div class="sb"><div class="st">Template showcase <span class="tag t-feat">feature</span></div><div class="sd">Horizontal scroll of template categories: Social Media / Presentations / Video / Websites / Marketing.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">3</div><div class="sb"><div class="st">Scale proof <span class="tag t-proof">proof</span></div><div class="sd">"260M people. 12B designs created." + quotes from Fortune 500 users.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">4</div><div class="sb"><div class="st">AI tools <span class="tag t-ai">AI</span></div><div class="sd">Magic Write / Magic Resize / Text to Image / Background Remover. Shown via before/after visuals.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E1F5EE;color:#0F6E56">5</div><div class="sb"><div class="st">For Teams / Brand Kit <span class="tag t-aud">B2B</span></div><div class="sd">Dedicated section for teams. Brand Kit, collaboration, unified style. CTA: "Try Canva Teams".</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">6</div><div class="sb"><div class="st">Platform showcase <span class="tag t-feat">feature</span></div><div class="sd">Web / Mobile / Print — cross-platform outputs on different devices.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAECE7;color:#993C1D">7</div><div class="sb"><div class="st">Bottom CTA <span class="tag t-cta">CTA</span></div><div class="sd">"Design anything. Start for free." Mirrors hero — brand recognition does the rest.</div></div></div>
+  </div>
+  <div class="sl">Patterns</div>
+  <div class="pgrid">
+    <div class="pc"><div class="pl">CTA in hero</div><div class="pv good">1 (Sign up free)</div></div>
+    <div class="pc"><div class="pl">Social proof position</div><div class="pv warn">Section 3 — not immediately</div></div>
+    <div class="pc"><div class="pl">Visual in hero</div><div class="pv good">Collage of output results</div></div>
+    <div class="pc"><div class="pl">Product explanation</div><div class="pv warn">Absent — relies on awareness</div></div>
+    <div class="pc"><div class="pl">Audiences</div><div class="pv good">B2C hero → B2B section</div></div>
+    <div class="pc"><div class="pl">Barrier to action</div><div class="pv good">Minimal</div></div>
+  </div>
+  <div class="note">Canva's homepage works because of 260M users and years of brand building. The model cannot be replicated by a product that isn't universally recognized. The lesson: show what users create (end results), not what the tool does.</div>
+</div>
+
+<div class="bv" id="figma">
+  <div class="hero-card">
+    <div class="hl">Hero</div>
+    <div class="headline">"Where teams design together"</div>
+    <div class="subline">Powerful design tools with multiplayer collaboration. Explore ideas, build prototypes, gather feedback — all in one place.</div>
+    <div class="cta-row"><span class="cp">Get started for free</span><span class="cs">Watch demo</span></div>
+    <span class="vis">👥 Product UI — multiple named cursors (Ana, Tyler, Raj) in one file</span>
+  </div>
+  <div class="sl">Page structure</div>
+  <div class="slist">
+    <div class="sr"><div class="sn" style="background:#B5D4F4;color:#042C53">0</div><div class="sb"><div class="st">Nav</div><div class="sd">Compact: Products (Design / FigJam / Slides / Sites / Make) / Community / Resources / Pricing. "Log in" + "Get started" (black). No mega-menu.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">1</div><div class="sb"><div class="st">Hero <span class="tag t-feat">collab-visual</span></div><div class="sd">Collaboration shown physically: named cursors in one file. No other brand in this analysis does this as clearly.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">2</div><div class="sb"><div class="st">Customer logos <span class="tag t-proof">proof</span></div><div class="sd">Monochrome logos: Google, Microsoft, Dropbox, Slack, Spotify, Netflix. Immediately after hero.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">3</div><div class="sb"><div class="st">Product suite <span class="tag t-feat">feature</span></div><div class="sd">Tabbed showcase: Design / Prototype / Dev Mode / FigJam / Slides / Sites. Each tab = sub-product with screenshot.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">4</div><div class="sb"><div class="st">AI features <span class="tag t-ai">AI</span></div><div class="sd">Figma Make: AI-generated websites and prototypes. Presented as a new standalone product, not a feature upgrade.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAEEDA;color:#854F0B">5</div><div class="sb"><div class="st">Community <span class="tag t-proof">proof</span></div><div class="sd">"8M+ files shared on Figma Community." Templates, plugins, resources. Reinforces ecosystem depth.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E1F5EE;color:#0F6E56">6</div><div class="sb"><div class="st">Enterprise / Pricing <span class="tag t-aud">B2B</span></div><div class="sd">Plan cards + link to full pricing page. Enterprise with "Contact sales".</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAECE7;color:#993C1D">7</div><div class="sb"><div class="st">Bottom CTA <span class="tag t-cta">CTA</span></div><div class="sd">"Start for free — bring your team." Shifts from individual to team, ending on the collaborative message.</div></div></div>
+  </div>
+  <div class="sl">Patterns</div>
+  <div class="pgrid">
+    <div class="pc"><div class="pl">CTA in hero</div><div class="pv good">2 (Free + Demo)</div></div>
+    <div class="pc"><div class="pl">Social proof position</div><div class="pv good">Immediately after hero</div></div>
+    <div class="pc"><div class="pl">Visual in hero</div><div class="pv good">Product UI with collaboration</div></div>
+    <div class="pc"><div class="pl">Suite presentation</div><div class="pv good">Tabbed — no scroll fatigue</div></div>
+    <div class="pc"><div class="pl">Audiences</div><div class="pv good">Design + Dev + PM separately</div></div>
+    <div class="pc"><div class="pl">Bottom CTA angle</div><div class="pv good">Different — "bring your team"</div></div>
+  </div>
+  <div class="note">Figma is the only brand where collaboration is visible rather than described in the hero. Multiple named cursors communicate the value proposition in one glance. Most relevant execution to study for Planner 5D's collaboration focus.</div>
+</div>
+
+<div class="bv" id="notion">
+  <div class="hero-card">
+    <div class="hl">Hero</div>
+    <div class="headline">"The AI workspace that works for you"</div>
+    <div class="subline">Notion is the AI workspace where teams and AI agents get more done together. One place to find every answer, automate busywork, and get projects done.</div>
+    <div class="cta-row"><span class="cp">Get Notion free</span><span class="cs">Request a demo</span></div>
+    <span class="vis">🤖 Illustrated team + AI agent faces + live product UI</span>
+  </div>
+  <div class="sl">Page structure</div>
+  <div class="slist">
+    <div class="sr"><div class="sn" style="background:#D3D1C7;color:#2C2C2A">0</div><div class="sb"><div class="st">Nav</div><div class="sd">Ultra-minimal: Product / Teams / Enterprise / Download / Pricing. "Log in" + "Get Notion free". Black wordmark.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">1</div><div class="sb"><div class="st">Hero <span class="tag t-ai">AI-first pivot</span></div><div class="sd">AI is the primary narrative. Collaboration moved to the subline. Dual CTA segments B2C (free) vs enterprise (demo).</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">2</div><div class="sb"><div class="st">Partner logos + UI <span class="tag t-proof">proof</span></div><div class="sd">OpenAI, Figma, NVIDIA, Perplexity, Anthropic. Live product screenshot directly below. Proof + product in one section.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">3</div><div class="sb"><div class="st">AI showcase <span class="tag t-ai">AI</span></div><div class="sd">AI Search / AI Autofill / AI Agents / AI Summary. Interactive animated cards. AI is the product, not a feature layer.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">4</div><div class="sb"><div class="st">Connected workspace <span class="tag t-feat">feature</span></div><div class="sd">Docs + Projects + Wiki + Calendar in a tabbed showcase. Product breadth after AI is established.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E1F5EE;color:#0F6E56">5</div><div class="sb"><div class="st">For Teams / Enterprise <span class="tag t-aud">B2B</span></div><div class="sd">Clear audience switch: "Built for teams that move fast." Enterprise security, SSO, admin controls.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAEEDA;color:#854F0B">6</div><div class="sb"><div class="st">Templates gallery <span class="tag t-feat">feature</span></div><div class="sd">Popular templates by category. Reduces the "where do I start?" barrier.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAECE7;color:#993C1D">7</div><div class="sb"><div class="st">Bottom CTA <span class="tag t-cta">CTA</span></div><div class="sd">"Get started with AI today — free forever for personal use." Different angle: reinforces free tier + AI.</div></div></div>
+  </div>
+  <div class="sl">Patterns</div>
+  <div class="pgrid">
+    <div class="pc"><div class="pl">CTA in hero</div><div class="pv good">2 (Free + Demo)</div></div>
+    <div class="pc"><div class="pl">Social proof position</div><div class="pv good">Immediately after hero</div></div>
+    <div class="pc"><div class="pl">Visual in hero</div><div class="pv good">Illustration + product UI</div></div>
+    <div class="pc"><div class="pl">AI in hierarchy</div><div class="pv good">Headline + full section</div></div>
+    <div class="pc"><div class="pl">Audiences</div><div class="pv good">B2C hero → B2B section</div></div>
+    <div class="pc"><div class="pl">Barrier removal</div><div class="pv good">"Free forever" in bottom CTA</div></div>
+  </div>
+  <div class="note">Notion shows that AI and collaboration are not competing narratives — AI can be the headline while collaboration becomes the proof mechanism. The most significant positioning evolution among the five brands.</div>
+</div>
+
+<div class="bv" id="confluence">
+  <div class="hero-card">
+    <div class="hl">Hero</div>
+    <div class="headline">"The connected workspace for better team collaboration"</div>
+    <div class="subline">Confluence brings your teams, tools, and knowledge together in one connected space — powered by Atlassian AI.</div>
+    <div class="cta-row"><span class="cp">Get it free</span><span class="cs">Try now</span></div>
+    <span class="vis">📋 Product UI — pages and whiteboards within Atlassian suite</span>
+  </div>
+  <div class="sl">Page structure</div>
+  <div class="slist">
+    <div class="sr"><div class="sn" style="background:#B5D4F4;color:#042C53">0</div><div class="sb"><div class="st">Nav</div><div class="sd">Atlassian global header (all products) + Confluence sub-nav. Signals suite dependency rather than standalone product.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">1</div><div class="sb"><div class="st">Hero <span class="tag t-feat">functional</span></div><div class="sd">Functional headline with no aspirational layer. Product screenshot without visual impact. Utility-first tone throughout.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">2</div><div class="sb"><div class="st">Atlassian suite logos <span class="tag t-proof">proof</span></div><div class="sd">Jira, Trello, Loom, Rovo + "Works better together." Credibility from ecosystem halo, not standalone product strength.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">3</div><div class="sb"><div class="st">Pages & Whiteboards <span class="tag t-feat">feature</span></div><div class="sd">Docs + Whiteboards + Databases. Shows expansion beyond traditional wiki. Screenshot + description per type.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#E6F1FB;color:#185FA5">4</div><div class="sb"><div class="st">Rovo AI <span class="tag t-ai">AI</span></div><div class="sd">Atlassian AI for enterprise-wide search and automation. Positioned as a separate Atlassian product, not a Confluence feature.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EAF3DE;color:#3B6D11">5</div><div class="sb"><div class="st">Customer logos <span class="tag t-proof">proof</span></div><div class="sd">NASA, Spotify, Domino's, LinkedIn. Appears late in the scroll — not in the first screen.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#EEEDFE;color:#534AB7">6</div><div class="sb"><div class="st">Integrations / Marketplace <span class="tag t-feat">feature</span></div><div class="sd">3,000+ integrations. Reinforces ecosystem depth.</div></div></div>
+    <div class="sr"><div class="sn" style="background:#FAECE7;color:#993C1D">7</div><div class="sb"><div class="st">Bottom CTA <span class="tag t-cta">CTA</span></div><div class="sd">"Get started free" + "Talk to sales." Standard B2B pattern, no differentiated messaging.</div></div></div>
+  </div>
+  <div class="sl">Patterns</div>
+  <div class="pgrid">
+    <div class="pc"><div class="pl">CTA in hero</div><div class="pv warn">2 — poorly differentiated</div></div>
+    <div class="pc"><div class="pl">Social proof position</div><div class="pv warn">Suite logos — not user logos</div></div>
+    <div class="pc"><div class="pl">Visual in hero</div><div class="pv warn">Product UI — no wow factor</div></div>
+    <div class="pc"><div class="pl">AI in hierarchy</div><div class="pv warn">Section 4 — too late</div></div>
+    <div class="pc"><div class="pl">Standalone value</div><div class="pv warn">Weak — lives in ecosystem</div></div>
+    <div class="pc"><div class="pl">Tone</div><div class="pv warn">Functional, no aspirational layer</div></div>
+  </div>
+  <div class="note">Confluence is the weakest homepage of the five. The product relies on the Jira ecosystem and has no independent narrative. AI (Rovo) is presented as a separate product rather than a Confluence superpower — a missed opportunity.</div>
+</div>
+</div>
+<script>
+function show(id,el){
+  document.querySelectorAll('.bv').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
