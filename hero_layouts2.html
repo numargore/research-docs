@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planner 5D — Hero Layout Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F5F4F0; --surface: #FFFFFF;
+  --border: #E2DFD8; --border-mid: #C8C4BC;
+  --text: #1A1918; --text-2: #6B6760; --text-3: #A09C97;
+  --blue: #185FA5; --red: #C0392B; --green: #0F6E56;
+  --green-light: #E1F5EE; --canvas: #ECEAE4;
+  --r: 8px; --r-lg: 12px;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 13px; }
+.hdr { background: var(--surface); border-bottom: 1px solid var(--border); padding: 18px 22px 14px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.hdr h1 { font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; }
+.hdr p { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+.pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.pill { font-size: 10px; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--border); color: var(--text-2); background: var(--bg); }
+.pill.g { background: var(--green-light); color: var(--green); border-color: #9FE1CB; }
+.tabs { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 22px; display: flex; gap: 5px; flex-wrap: wrap; }
+.tab { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; padding: 5px 12px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg); color: var(--text-2); cursor: pointer; transition: all .15s; white-space: nowrap; }
+.tab:hover { border-color: var(--border-mid); color: var(--text); }
+.tab.on { background: var(--text); color: #fff; border-color: var(--text); }
+.main { padding: 18px 22px; }
+.lv { display: none; }
+.lv.on { display: block; }
+.ref { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; font-size: 11px; color: var(--text-2); }
+.rtag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; }
+.frame { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.mnav { height: 34px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 14px; gap: 6px; }
+.mlogo { width: 64px; height: 6px; background: var(--text); border-radius: 2px; opacity:.85; }
+.mnls { display: flex; gap: 14px; flex: 1; margin-left: 16px; }
+.mnl { width: 30px; height: 4px; background: var(--border); border-radius: 2px; }
+.mbtn-o { width: 46px; height: 20px; border: 1px solid var(--border-mid); border-radius: 4px; }
+.mbtn-s { width: 56px; height: 20px; background: var(--text); border-radius: 4px; }
+.cvs { background: var(--canvas); position: relative; }
+.room { position: absolute; border: 1.5px solid var(--border-mid); border-radius: 3px; }
+.furn { position: absolute; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; }
+.cur { position: absolute; display: flex; flex-direction: column; gap: 2px; }
+.clbl { font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; color: #fff; white-space: nowrap; }
+.fade { position: absolute; bottom: 0; left: 0; right: 0; height: 44px; background: linear-gradient(transparent, var(--canvas)); pointer-events: none; }
+.hl  { height: 10px; border-radius: 2px; background: var(--text); }
+.sub { height: 5px; border-radius: 2px; background: var(--border-mid); }
+.sub2{ height: 5px; border-radius: 2px; background: var(--border); }
+.tr  { height: 4px; border-radius: 2px; background: var(--border); }
+.cta-p { height: 28px; border-radius: 6px; background: var(--text); }
+.cta-g { height: 28px; border-radius: 6px; border: 1px solid var(--border-mid); }
+.live { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; font-weight: 500; padding: 2px 6px; border-radius: 20px; background: var(--green-light); color: var(--green); }
+.ldot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+.avs { display: flex; align-items: center; }
+.av { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--surface); margin-right: -4px; font-size: 7px; font-weight: 700; display: flex; align-items: center; justify-content: center; color: #fff; }
+.stars { display: flex; gap: 1px; }
+.star { width: 8px; height: 8px; background: #F0B429; clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+.tpill { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-2); }
+.tpdot { width: 5px; height: 5px; border-radius: 50%; }
+.toolbar { height: 30px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 12px; gap: 2px; }
+.tt { font-size: 10px; padding: 2px 8px; border-radius: 4px; color: var(--text-2); }
+.tt.on { background: var(--bg); color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div>
+    <h1>Planner 5D — Hero Layout Concepts</h1>
+    <p>Three homepage hero structures</p>
+  </div>
+  <div class="pills">
+    <span class="pill g">● Real-time collaboration</span>
+    <span class="pill">Goal: registrations</span>
+    <span class="pill">3 layouts</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('l1',this)">Layout 1 — Split</button>
+  <button class="tab"    onclick="sw('l2',this)">Layout 2 — Text over canvas</button>
+  <button class="tab"    onclick="sw('l3',this)">Layout 3 — Full-width canvas</button>
+</div>
+
+<div class="main">
+
+  <!-- L1 -->
+  <div class="lv on" id="l1">
+    <div class="ref">
+      <span>Reference:</span>
+      <span class="rtag" style="background:#B5D4F4;color:#042C53">Confluence — split layout</span>
+      <span>·</span>
+      <span>Text left · product right · most common SaaS pattern</span>
+    </div>
+    <div class="frame">
+      <div class="mnav">
+        <div class="mlogo"></div>
+        <div class="mnls"><div class="mnl"></div><div class="mnl"></div><div class="mnl"></div><div class="mnl"></div></div>
+        <div style="display:flex;gap:5px;margin-left:auto"><div class="mbtn-o"></div><div class="mbtn-s"></div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;min-height:270px;background:var(--surface)">
+        <div style="padding:28px 24px;display:flex;flex-direction:column;justify-content:center;gap:10px">
+          <div class="tpill" style="width:fit-content"><span class="tpdot" style="background:var(--green)"></span>Real-time collaboration · Free</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div class="hl" style="width:86%"></div>
+            <div class="hl" style="width:64%"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <div class="sub"  style="width:100%"></div>
+            <div class="sub2" style="width:82%"></div>
+            <div class="sub2" style="width:60%"></div>
+          </div>
+          <div style="display:flex;gap:7px;margin-top:2px">
+            <div class="cta-p" style="width:110px"></div>
+            <div class="cta-g" style="width:86px"></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star" style="opacity:.35"></div></div>
+            <div class="tr" style="width:38px"></div>
+            <div style="width:1px;height:7px;background:var(--border)"></div>
+            <div class="tr" style="width:50px"></div>
+            <div style="width:1px;height:7px;background:var(--border)"></div>
+            <div class="tr" style="width:58px"></div>
+          </div>
+        </div>
+        <div style="padding:14px;background:var(--bg);display:flex;align-items:center">
+          <div style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+            <div style="height:26px;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 9px;gap:5px">
+              <div style="width:18px;height:4px;background:var(--border);border-radius:2px"></div>
+              <div style="width:13px;height:4px;background:var(--border);border-radius:2px"></div>
+              <div style="flex:1"></div>
+              <div class="avs">
+                <div class="av" style="background:var(--blue)">S</div>
+                <div class="av" style="background:var(--red)">A</div>
+                <div class="av" style="background:var(--green)">D</div>
+              </div>
+              <div class="live" style="margin-left:5px"><div class="ldot"></div>Live</div>
+            </div>
+            <div class="cvs" style="min-height:196px">
+              <div class="room" style="top:13px;left:12px;right:12px;bottom:12px">
+                <div class="furn" style="width:48px;height:28px;top:15px;left:13px"></div>
+                <div class="furn" style="width:34px;height:34px;top:15px;left:72px"></div>
+                <div class="furn" style="width:60px;height:12px;bottom:16px;left:10px"></div>
+                <div class="furn" style="width:28px;height:28px;bottom:13px;right:11px"></div>
+              </div>
+              <div class="cur" style="top:17px;left:16px">
+                <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#185FA5"/></svg>
+                <div class="clbl" style="background:#185FA5">Sarah</div>
+              </div>
+              <div class="cur" style="top:42%;right:15px">
+                <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#C0392B"/></svg>
+                <div class="clbl" style="background:#C0392B">Alex</div>
+              </div>
+              <div class="cur" style="bottom:20px;left:38%">
+                <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#0F6E56"/></svg>
+                <div class="clbl" style="background:#0F6E56">Designer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- L2 -->
+  <div class="lv" id="l2">
+    <div class="ref">
+      <span>Reference:</span>
+      <span class="rtag" style="background:#B5D4F4;color:#042C53">Figma — text over product</span>
+      <span>·</span>
+      <span>Canvas fills the screen · text card centered over it</span>
+    </div>
+    <div class="frame">
+      <div class="mnav">
+        <div class="mlogo"></div>
+        <div class="mnls"><div class="mnl"></div><div class="mnl"></div><div class="mnl"></div></div>
+        <div style="margin-left:auto"><div class="mbtn-s"></div></div>
+      </div>
+      <div style="position:relative;min-height:310px">
+        <div class="cvs" style="position:absolute;inset:0">
+          <div class="room" style="top:14px;left:8%;right:8%;bottom:14px">
+            <div class="furn" style="width:64px;height:36px;top:18px;left:15px"></div>
+            <div class="furn" style="width:46px;height:46px;top:18px;left:94px"></div>
+            <div class="furn" style="width:38px;height:22px;top:18px;right:15px"></div>
+            <div class="furn" style="width:84px;height:13px;bottom:20px;left:12px"></div>
+            <div class="furn" style="width:38px;height:38px;bottom:15px;right:12px"></div>
+          </div>
+          <div class="cur" style="top:18px;left:11%">
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#185FA5"/></svg>
+            <div class="clbl" style="background:#185FA5">Sarah</div>
+          </div>
+          <div class="cur" style="top:35%;right:10%">
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#C0392B"/></svg>
+            <div class="clbl" style="background:#C0392B">Alex</div>
+          </div>
+          <div class="cur" style="bottom:24px;left:41%">
+            <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#0F6E56"/></svg>
+            <div class="clbl" style="background:#0F6E56">Designer</div>
+          </div>
+        </div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:220px;background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:9px;box-shadow:0 4px 20px rgba(0,0,0,.10)">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div class="hl" style="width:90%"></div>
+            <div class="hl" style="width:66%"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <div class="sub"  style="width:100%"></div>
+            <div class="sub2" style="width:82%"></div>
+            <div class="sub2" style="width:58%"></div>
+          </div>
+          <div class="cta-p" style="width:100%"></div>
+          <div style="display:flex;align-items:center;gap:5px">
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+            <span style="font-size:9px;color:var(--text-3)">or sign in with</span>
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:7px">
+            <div style="width:24px;height:24px;border-radius:50%;border:1px solid var(--border)"></div>
+            <div style="width:24px;height:24px;border-radius:50%;border:1px solid var(--border)"></div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:7px;display:flex;align-items:center;gap:5px">
+            <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star" style="opacity:.35"></div></div>
+            <div class="tr" style="width:38px"></div>
+            <div style="width:1px;height:7px;background:var(--border)"></div>
+            <div class="tr" style="width:46px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- L3 -->
+  <div class="lv" id="l3">
+    <div class="ref">
+      <span>Reference:</span>
+      <span class="rtag" style="background:#FFF3B0;color:#7A5C00">Miro — wide canvas</span>
+      <span class="rtag" style="background:#E8D8F5;color:#4B1A80">Canva — full-width media</span>
+      <span>·</span>
+      <span>Minimal centered text · canvas dominates · cut off at bottom</span>
+    </div>
+    <div class="frame">
+      <div class="mnav">
+        <div class="mlogo"></div>
+        <div class="mnls"><div class="mnl"></div><div class="mnl"></div></div>
+        <div style="display:flex;gap:5px;margin-left:auto"><div class="mbtn-o"></div><div class="mbtn-s"></div></div>
+      </div>
+      <div style="background:var(--surface);padding:20px 16px 16px;text-align:center;border-bottom:1px solid var(--border)">
+        <div style="max-width:340px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:7px">
+          <div class="tpill"><span class="tpdot" style="background:var(--green)"></span>Design together · real time</div>
+          <div style="display:flex;flex-direction:column;gap:5px;width:100%;align-items:center">
+            <div class="hl" style="width:72%"></div>
+            <div class="hl" style="width:52%"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;width:100%;align-items:center">
+            <div class="sub"  style="width:86%"></div>
+            <div class="sub2" style="width:66%"></div>
+          </div>
+          <div style="display:flex;gap:9px;margin-top:3px;align-items:center">
+            <div class="cta-p" style="width:108px"></div>
+            <span style="font-size:10px;color:var(--text-3)">Free · no card needed</span>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="tt on">Floor plan</div>
+        <div class="tt">3D view</div>
+        <div class="tt">Renders</div>
+        <div style="flex:1"></div>
+        <div class="avs">
+          <div class="av" style="background:var(--blue)">S</div>
+          <div class="av" style="background:var(--red)">A</div>
+          <div class="av" style="background:var(--green)">D</div>
+        </div>
+        <span style="font-size:10px;color:var(--text-2);margin:0 7px">3 collaborating now</span>
+        <div class="live"><div class="ldot"></div>Live</div>
+      </div>
+      <div class="cvs" style="min-height:185px;position:relative">
+        <div class="room" style="top:13px;left:4%;right:4%;bottom:13px">
+          <div class="furn" style="width:72px;height:40px;top:18px;left:15px"></div>
+          <div class="furn" style="width:50px;height:50px;top:18px;left:103px"></div>
+          <div class="furn" style="width:44px;height:24px;top:18px;right:15px"></div>
+          <div class="furn" style="width:96px;height:14px;bottom:20px;left:12px"></div>
+          <div class="furn" style="width:42px;height:42px;bottom:16px;right:12px"></div>
+        </div>
+        <div class="cur" style="top:17px;left:7%">
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#185FA5"/></svg>
+          <div class="clbl" style="background:#185FA5">Sarah</div>
+        </div>
+        <div class="cur" style="top:36%;right:6%">
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#C0392B"/></svg>
+          <div class="clbl" style="background:#C0392B">Alex</div>
+        </div>
+        <div class="cur" style="bottom:22px;left:43%">
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M1.5 1.5l5.5 2.7-2.2.9L4 8z" fill="#0F6E56"/></svg>
+          <div class="clbl" style="background:#0F6E56">Designer</div>
+        </div>
+        <div class="fade"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function sw(id,el){
+  document.querySelectorAll('.lv').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+}
+</script>
+</body>
+</html>
